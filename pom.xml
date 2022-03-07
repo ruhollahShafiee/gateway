@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.6.4</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.kadmos.service</groupId>
+    <artifactId>gateway</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>gateway</name>
+    <description>api gateway</description>
+    <properties>
+        <java.version>8</java.version>
+        <spring-boot.version>2.6.3</spring-boot.version>
+        <spring-cloud.version>2021.0.0</spring-cloud.version>
+        <springdoc-openapi.version>1.6.6</springdoc-openapi.version>
+        <lombok.version>1.18.22</lombok.version>
+        <commons-codec.version>1.15</commons-codec.version>
+        <dapr.version>1.4.0</dapr.version>
+        <okhttp3.version>4.9.3</okhttp3.version>
+        <commons-cli.version>1.5.0</commons-cli.version>
+        <jmock.version>2.12.0</jmock.version>
+        <wiremock.version>2.8.0</wiremock.version>
+        <cucumber.version>6.11.0</cucumber.version>
+        <pact-provider-junit5.version>4.2.9</pact-provider-junit5.version>
+
+        <maven.compiler.version>3.10.0</maven.compiler.version>
+        <maven.surefire.version>2.22.2</maven.surefire.version>
+        <jacoco.maven.version>0.8.7</jacoco.maven.version>
+        <coverage.instruction.threshold>0.90</coverage.instruction.threshold>
+        <coverage.class.threshold>0.90</coverage.class.threshold>
+        <coverage.line.threshold>0.90</coverage.line.threshold>
+        <coverage.branch.threshold>0.90</coverage.branch.threshold>
+        <coverage.method.threshold>0.90</coverage.method.threshold>
+        <logback.json.version>0.1.5</logback.json.version>
+        <logback.jackson.version>0.1.5</logback.jackson.version>
+        <jackson.version>2.13.0</jackson.version>
+        <spring-cloud-starter-feign>1.4.7.RELEASE</spring-cloud-starter-feign>
+    </properties>
+
+    <modules>
+        <module>api-gateway</module>
+        <module>api-registry</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.kadmos.service</groupId>
+                <artifactId>api-gateway</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.kadmos.service</groupId>
+                <artifactId>registry</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter</artifactId>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-actuator</artifactId>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-tomcat</artifactId>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-logging</artifactId>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback.contrib</groupId>
+                <artifactId>logback-json-classic</artifactId>
+                <version>${logback.json.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback.contrib</groupId>
+                <artifactId>logback-jackson</artifactId>
+                <version>${logback.jackson.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
